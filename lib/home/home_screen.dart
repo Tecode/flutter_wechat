@@ -59,7 +59,17 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
     return Scaffold(
-      appBar: AppBar(title: Text('微信')),
+      appBar: AppBar(
+        title: Text('微信'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              print('显示下拉列表');
+            },
+            )
+        ],
+        ),
       body: Container(
         color: Colors.deepOrange,
       ),
