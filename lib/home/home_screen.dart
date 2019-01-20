@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../colors.dart' show AppColors;
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -16,14 +17,22 @@ class NavigationIconView {
         _icon = icon,
         _activeIcon = activeIcon,
         item = BottomNavigationBarItem(
-            icon: Icon(icon),
-            activeIcon: Icon(activeIcon),
-            title: Text(title),
+            icon: Icon(
+              icon,
+              color: Color(AppColors.TabIconNormal),
+            ),
+            activeIcon: Icon(
+              activeIcon,
+              color: Color(AppColors.TabIconActive),
+            ),
+            title: Text(title,
+                style: TextStyle(color: Color(AppColors.TabIconNormal))),
             backgroundColor: Colors.white);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   List<NavigationIconView> _navigationViews;
+  num _currentIntex = 0;
 
   void initState() {
     super.initState();
@@ -54,9 +63,18 @@ class _HomeScreenState extends State<HomeScreen> {
   ) {
     return Row(
       children: <Widget>[
-        Icon(IconData(icon, fontFamily: 'appIconFont')),
+        Icon(
+          IconData(
+            icon,
+            fontFamily: 'appIconFont',
+          ),
+          color: Color(AppColors.AppBarPopupMenuTextColor),
+        ),
         Container(width: 8),
-        Text(title)
+        Text(
+          title,
+          style: TextStyle(color: Color(AppColors.AppBarPopupMenuTextColor)),
+        )
       ],
     );
   }
@@ -67,15 +85,18 @@ class _HomeScreenState extends State<HomeScreen> {
       items: _navigationViews.map((NavigationIconView view) {
         return view.item;
       }).toList(),
-      currentIndex: 2,
+      currentIndex: _currentIntex,
       type: BottomNavigationBarType.fixed,
       onTap: (int index) {
-        print('$index');
+        setState(() {
+          _currentIntex = index;
+        });
       },
     );
     return Scaffold(
       appBar: AppBar(
         title: Text('微信'),
+        elevation: 0.0,
         actions: <Widget>[
           PopupMenuButton(
             itemBuilder: (BuildContext contenx) {

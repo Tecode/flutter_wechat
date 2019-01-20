@@ -3,10 +3,10 @@ import './home/home_screen.dart';
 import './colors.dart' show AppColors;
 
 void main() => runApp(MaterialApp(
-  title: '微信',
-  theme: ThemeData(
-    primaryColor: Color(AppColors.AppBarColor),
-  ),
-  home: HomeScreen(),
-));
-
+      title: '微信',
+      theme: ThemeData.light().copyWith(
+        primaryColor: Color(AppColors.AppBarColor),
+        cardColor: Color(AppColors.AppBarColor)
+      ),
+      home: HomeScreen(),
+    ));
