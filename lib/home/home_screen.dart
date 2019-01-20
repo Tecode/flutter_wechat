@@ -25,7 +25,9 @@ class NavigationIconView {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<NavigationIconView> _navigationViews;
-  num _currentIntex = 0;
+  List<Widget> _pages;
+  int _currentIndex = 0;
+  PageController _pageController = PageController(initialPage: 0);
 
   void initState() {
     super.initState();
@@ -46,6 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
           title: '我',
           icon: IconData(0xe743, fontFamily: 'appIconFont'),
           activeIcon: IconData(0xe743, fontFamily: 'appIconFont')),
+    ];
+    _pages = [
+      Container(color: Colors.yellow),
+      Container(color: Colors.blue),
+      Container(color: Colors.cyan),
+      Container(
+        color: Colors.green,
+      )
     ];
   }
 
@@ -79,11 +89,13 @@ class _HomeScreenState extends State<HomeScreen> {
         return view.item;
       }).toList(),
       fixedColor: const Color(AppColors.TabIconActive),
-      currentIndex: _currentIntex,
+      currentIndex: _currentIndex,
       type: BottomNavigationBarType.fixed,
       onTap: (int index) {
         setState(() {
-          _currentIntex = index;
+          _currentIndex = index;
+          _pageController.animateToPage(_currentIndex,
+              duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
         });
       },
     );
@@ -123,8 +135,17 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: Container(
-        color: Colors.deepOrange,
+      body: PageView.builder(
+        itemBuilder: (BuildContext contenx, int index) {
+          return _pages[index];
+        },
+        itemCount: _pages.length,
+        onPageChanged: (int index) {
+          print('当前在第$index页');
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
       bottomNavigationBar: bottomBar,
     );
