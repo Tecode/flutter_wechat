@@ -6,17 +6,17 @@ class HomeScreen extends StatefulWidget {
 
 class NavigationIconView {
   final String _title;
-  final Widget _icon;
-  final Widget _activeIcon;
+  final IconData _icon;
+  final IconData _activeIcon;
   final BottomNavigationBarItem item;
 
-  NavigationIconView({Key key, String title, Widget icon, Widget activeIcon})
+  NavigationIconView({Key key, String title, IconData icon, IconData activeIcon})
       : _title = title,
         _icon = icon,
         _activeIcon = activeIcon,
         item = BottomNavigationBarItem(
-            icon: icon,
-            activeIcon: activeIcon,
+            icon: Icon(icon),
+            activeIcon: Icon(activeIcon),
             title: Text(title),
             backgroundColor: Colors.white);
 }
@@ -29,20 +29,44 @@ class _HomeScreenState extends State<HomeScreen> {
     _navigationViews = [
       NavigationIconView(
           title: '微信',
-          icon: Icon(Icons.chat_bubble_outline),
-          activeIcon: Icon(Icons.chat_bubble)),
+          icon: IconData(
+            0xe740,
+            fontFamily: 'appIconFont'
+          ),
+          activeIcon: IconData(
+            0xe740,
+            fontFamily: 'appIconFont'
+          )),
       NavigationIconView(
           title: '通讯录',
-          icon: Icon(Icons.contact_mail),
-          activeIcon: Icon(Icons.access_time)),
+          icon: IconData(
+            0xe749,
+            fontFamily: 'appIconFont'
+          ),
+          activeIcon: IconData(
+            0xe749,
+            fontFamily: 'appIconFont'
+          )),
       NavigationIconView(
           title: '发现',
-          icon: Icon(Icons.access_alarms),
-          activeIcon: Icon(Icons.access_time)),
+          icon: IconData(
+            0xe74b,
+            fontFamily: 'appIconFont'
+          ),
+          activeIcon: IconData(
+            0xe74b,
+            fontFamily: 'appIconFont'
+          )),
       NavigationIconView(
           title: '我',
-          icon: Icon(Icons.access_alarms),
-          activeIcon: Icon(Icons.access_time)),
+          icon: IconData(
+            0xe743,
+            fontFamily: 'appIconFont'
+          ),
+          activeIcon: IconData(
+            0xe743,
+            fontFamily: 'appIconFont'
+          )),
     ];
   }
 
