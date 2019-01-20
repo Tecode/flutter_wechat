@@ -46,8 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
           activeIcon: IconData(0xe743, fontFamily: 'appIconFont')),
     ];
   }
+
   // 构建出图标
-  _buildPopupMenuItem(num icon, String title,){
+  _buildPopupMenuItem(
+    num icon,
+    String title,
+  ) {
     return Row(
       children: <Widget>[
         Icon(IconData(icon, fontFamily: 'appIconFont')),
@@ -78,19 +82,19 @@ class _HomeScreenState extends State<HomeScreen> {
               return <PopupMenuItem>[
                 PopupMenuItem(
                   child: _buildPopupMenuItem(0xe740, '发起群聊'),
-                  value: 'group_chat',
+                  value: 'new_chat',
                 ),
                 PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe743, '新增联系人'),
-                  value: 'group_chat',
+                  child: _buildPopupMenuItem(0xe743, '添加朋友'),
+                  value: 'add_contact',
                 ),
                 PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe74f, '扫码'),
-                  value: 'group_chat',
+                  child: _buildPopupMenuItem(0xe74f, '扫一扫'),
+                  value: 'scan',
                 ),
                 PopupMenuItem(
                   child: _buildPopupMenuItem(0xe754, '收付款'),
-                  value: 'group_chat',
+                  value: 'money',
                 ),
               ];
             },
@@ -98,6 +102,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Icons.add,
               size: 26,
             ),
+            onSelected: (Object selected) {
+              print('点击的是$selected');
+            },
           )
         ],
       ),
