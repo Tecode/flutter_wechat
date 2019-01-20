@@ -17,16 +17,9 @@ class NavigationIconView {
         _icon = icon,
         _activeIcon = activeIcon,
         item = BottomNavigationBarItem(
-            icon: Icon(
-              icon,
-              color: Color(AppColors.TabIconNormal),
-            ),
-            activeIcon: Icon(
-              activeIcon,
-              color: Color(AppColors.TabIconActive),
-            ),
-            title: Text(title,
-                style: TextStyle(color: Color(AppColors.TabIconNormal))),
+            icon: Icon(icon),
+            activeIcon: Icon(activeIcon),
+            title: Text(title),
             backgroundColor: Colors.white);
 }
 
@@ -85,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
       items: _navigationViews.map((NavigationIconView view) {
         return view.item;
       }).toList(),
+      fixedColor: const Color(AppColors.TabIconActive),
       currentIndex: _currentIntex,
       type: BottomNavigationBarType.fixed,
       onTap: (int index) {
