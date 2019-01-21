@@ -139,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
         itemBuilder: (BuildContext contenx, int index) {
           return _pages[index];
         },
+        controller: _pageController,
         itemCount: _pages.length,
         onPageChanged: (int index) {
           print('当前在第$index页');
