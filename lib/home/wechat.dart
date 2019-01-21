@@ -1,17 +1,43 @@
 import 'package:flutter/material.dart';
+import '../constants.dart' show AppColors, AppStyle, Constants;
+import '../model/weChatData.dart' show weChatData;
 
 class _WeChatListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(10.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Image.asset('assets/images/favorite.png'),
-          Container(color: Colors.red),
-          Container(color: Colors.limeAccent)
+          Image.asset(
+            'assets/images/avatar_women.jpg',
+            width: Constants.CoverAvaterSize,
+            height: Constants.CoverAvaterSize,
+          ),
+          Container(
+            width: 10.0,
+          ),
+          Expanded(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                '微信新闻',
+                style: AppStyle.TitleStyle,
+              ),
+              Text(
+                '百年南开：牢记嘱托 立德树人',
+                style: AppStyle.DiscriptionStyle,
+              )
+            ],
+          )),
+          Column(
+            children: <Widget>[Text('17:12')],
+          )
         ],
-        ),
+      ),
+      color: Color(AppColors.WeChatListBackgoundColor),
     );
   }
 }
@@ -39,9 +65,11 @@ class _WeChatDataState extends State<WeChat>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black38,
-      child: _WeChatListItem(),
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        return _WeChatListItem();
+      },
+      itemCount: weChatData.length,
     );
   }
 }

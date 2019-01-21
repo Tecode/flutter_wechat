@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../colors.dart' show AppColors;
+import '../constants.dart' show AppColors;
 import './wechat.dart';
 
 class HomeScreen extends StatefulWidget {

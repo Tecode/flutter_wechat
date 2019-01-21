@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './home/home_screen.dart';
-import './colors.dart' show AppColors;
+import './constants.dart' show AppColors;
 
 void main() => runApp(MaterialApp(
       title: '微信',
