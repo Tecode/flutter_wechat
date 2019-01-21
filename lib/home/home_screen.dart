@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../colors.dart' show AppColors;
+import './wechat.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           activeIcon: IconData(0xe743, fontFamily: 'appIconFont')),
     ];
     _pages = [
-      Container(color: Colors.yellow),
+      WeChat(),
       Container(color: Colors.blue),
       Container(color: Colors.cyan),
       Container(
