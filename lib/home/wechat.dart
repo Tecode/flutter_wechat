@@ -13,6 +13,9 @@ class _WeChatListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget avartar;
+    Widget avartarContainer;
+    Widget rightArea;
+
     if (weChatItem.isAvatartFromNet()) {
       avartar = Image.network(
         weChatItem.avartar,
@@ -35,24 +38,45 @@ class _WeChatListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(Constants.NotifyDotSize / 2.0),
           color: Color(AppColors.NotifyDotColor)),
       child: Text(
-        '25',
+        weChatItem.unreadMsgCount.toString(),
         style:
             TextStyle(color: Color(AppColors.NotifyTextColor), fontSize: 12.0),
       ),
     );
 
-    // 堆栈式布局，类似与绝对布局或相对布局
-    Widget avartarContainer = Stack(
-      overflow: Overflow.visible,
-      children: <Widget>[
-        avartar,
-        Positioned( //定位
-          right: -6.0,
-          top: -6.0,
-          child: unreadMsgCountText,
-        )
-      ],
-    );
+    // 判断未读消息
+    if (weChatItem.unreadMsgCount > 0) {
+      // 堆栈式布局，类似与绝对布局或相对布局
+      avartarContainer = Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          avartar,
+          Positioned(
+            //定位
+            right: -6.0,
+            top: -6.0,
+            child: unreadMsgCountText,
+          )
+        ],
+      );
+    } else {
+      avartarContainer = avartar;
+    }
+
+    // 判断是否是勿扰模式
+    if (weChatItem.isMute) {
+      // 勿扰模式图标
+      rightArea = Image.asset(
+        'assets/images/mute_icon.png',
+        width: 20.0,
+        height: 20.0,
+      );
+    } else {
+      rightArea = SizedBox(
+        width: 20.0,
+        height: 20.0,
+      );
+    }
 
     return Container(
       padding: const EdgeInsets.all(10.0),
@@ -84,7 +108,7 @@ class _WeChatListItem extends StatelessWidget {
             ],
           )),
           Column(
-            children: <Widget>[Text('17:12')],
+            children: <Widget>[Text(weChatItem.creatAt), rightArea],
           )
         ],
       ),
