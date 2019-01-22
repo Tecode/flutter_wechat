@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../constants.dart' show AppColors, AppStyle, Constants;
 import '../model/weChatData.dart' show WeChatData, weChatData;
 
+enum Device { MAC, WIN }
+
 class _WeChatListItem extends StatelessWidget {
   const _WeChatListItem({Key key, this.weChatItem})
       // 类型断言不能为空
@@ -116,6 +118,42 @@ class _WeChatListItem extends StatelessWidget {
   }
 }
 
+class _DeviceInfoItem extends StatelessWidget {
+  final Device device;
+
+  Widget get iconType {
+    return device == Device.MAC
+        ? Icon(Icons.desktop_mac)
+        : Icon(Icons.desktop_windows);
+  }
+
+  String get driviceName => device == Device.MAC ? 'Mac' : 'Windows';
+
+  const _DeviceInfoItem({this.device: Device.MAC}) : assert(device != null);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+          color: Color(AppColors.WeChatListBackgoundColor),
+          border: Border(
+              bottom: BorderSide(
+                  width: Constants.DividerWidth,
+                  color: Color(AppColors.DriverColor)))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          this.iconType,
+          SizedBox(width: 10.0),
+          Text('${this.driviceName}微信已登录，微信通知已关闭。')
+        ],
+      ),
+    );
+  }
+}
+
 class WeChat extends StatefulWidget {
   @override
   _WeChatDataState createState() => _WeChatDataState();
@@ -123,24 +161,13 @@ class WeChat extends StatefulWidget {
 
 class _WeChatDataState extends State<WeChat>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
+        if (index == 0) {
+          return _DeviceInfoItem(device: Device.WIN);
+        }
         return _WeChatListItem(
           weChatItem: weChatData[index],
         );

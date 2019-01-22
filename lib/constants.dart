@@ -11,6 +11,7 @@ class AppColors {
   static const DriverColor = 0xfff1f1f1;
   static const NotifyDotColor = 0xfff43530;
   static const NotifyTextColor = 0xffffffff;
+  static const DeviceInfoTextColor = 0xff353535;
 }
 
 class AppStyle {
@@ -20,10 +21,13 @@ class AppStyle {
       TextStyle(fontSize: 14.0, color: Color(AppColors.DescreptionColor));
   static const UnreadMsgDotStyle =
       TextStyle(color: Color(AppColors.NotifyTextColor), fontSize: 12);
+  static const DeviceInfoTextStyle =
+      TextStyle(color: Color(AppColors.DeviceInfoTextColor), fontSize: 14.0);
 }
 
 class Constants {
   static const CoverAvaterSize = 48.0;
   static const DividerWidth = 1.0;
   static const NotifyDotSize = 20.0;
+  static const DeviceInfoHeight = 36.0;
 }
