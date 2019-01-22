@@ -22,103 +22,63 @@ class WeChatData {
   final bool isMute;
   final int unreadMsgCount;
   final bool displayDot;
+
+  bool isAvatartFromNet() {
+    if (this.avartar.indexOf('http') == 0 ||
+        this.avartar.indexOf('https') == 0) {
+      return true;
+    }
+    return false;
+  }
 }
 
 const List<WeChatData> weChatData = [
   const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/9.jpg",
-      descript: "助力中小企业把握每一次成长契机",
+      avartar: "assets/images/tencent_news.png",
+      descript: "削减航班量，吊销机长与副驾驶执照",
       creatAt: "14:32",
       unreadMsgCount: 12,
-      title: "Girl"),
+      title: "腾讯新闻"),
   const WeChatData(
       avartar: "https://randomuser.me/api/portraits/men/68.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
+      descript: "[语音]",
+      creatAt: "09:32",
       unreadMsgCount: 7,
-      title: "Girl"),
+      title: "张佳宁同学"),
   const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/2.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
+      avartar: "assets/images/file_send.png",
+      descript: "[图片]",
+      creatAt: "20:32",
       unreadMsgCount: 22,
-      title: "Girl"),
+      title: "文件传输助手"),
   const WeChatData(
       avartar: "https://randomuser.me/api/portraits/women/10.jpg",
-      descript: "助力中小企业把握每一次成长契机",
+      descript: "你什么时候回来",
       creatAt: "14:32",
       unreadMsgCount: 60,
-      title: "Girl"),
+      title: "小慧"),
   const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/14.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
+      avartar: "assets/images/subscribe_account.png",
+      descript: "麦当劳网上订餐 | 麦乐送",
+      creatAt: "18:32",
       unreadMsgCount: 40,
-      title: "Girl"),
+      title: "麦当劳"),
   const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/6.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 84,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/4.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 62,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/10.jpg",
-      descript: "助力中小企业把握每一次成长契机",
+      avartar: "https://randomuser.me/api/portraits/women/20.jpg",
+      descript: "冲Q币送Q币",
       creatAt: "14:32",
       unreadMsgCount: 60,
-      title: "Girl"),
+      title: "小马哥"),
   const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/14.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 40,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/6.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 84,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/4.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 62,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/men/68.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 7,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/2.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 22,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/10.jpg",
-      descript: "助力中小企业把握每一次成长契机",
+      avartar: "https://randomuser.me/api/portraits/women/60.jpg",
+      descript: "好久不见了！",
       creatAt: "14:32",
       unreadMsgCount: 60,
-      title: "Girl"),
+      title: "小花花"),
   const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/14.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 40,
-      title: "Girl"),
-  const WeChatData(
-      avartar: "https://randomuser.me/api/portraits/women/6.jpg",
-      descript: "助力中小企业把握每一次成长契机",
-      creatAt: "14:32",
-      unreadMsgCount: 84,
-      title: "Girl"),
+      avartar: "https://randomuser.me/api/portraits/women/65.jpg",
+      descript: "该换花呗了，明天最后期限",
+      creatAt: "昨天",
+      unreadMsgCount: 60,
+      title: "马云"),
 ];

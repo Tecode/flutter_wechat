@@ -8,7 +8,9 @@ class AppColors {
   static const WeChatListBackgoundColor = 0xffffffff;
   static const ConversationTitleColor = 0xff353535;
   static const DescreptionColor = 0xff9e9e9e;
-  static const DriverColor = 0xff9e9e9e;
+  static const DriverColor = 0xfff1f1f1;
+  static const NotifyDotColor = 0xfff43530;
+  static const NotifyTextColor = 0xffffffff;
 }
 
 class AppStyle {
@@ -16,10 +18,12 @@ class AppStyle {
       TextStyle(fontSize: 20.0, color: Color(AppColors.ConversationTitleColor));
   static const DiscriptionStyle =
       TextStyle(fontSize: 14.0, color: Color(AppColors.DescreptionColor));
+  static const UnreadMsgDotStyle =
+      TextStyle(color: Color(AppColors.NotifyTextColor), fontSize: 12);
 }
-
 
 class Constants {
   static const CoverAvaterSize = 48.0;
   static const DividerWidth = 1.0;
+  static const NotifyDotSize = 20.0;
 }
