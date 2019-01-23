@@ -84,3 +84,5 @@ const List<WeChatData> weChatData = [
       unreadMsgCount: 0,
       title: "马云"),
 ];
+
+const Map mockWeChatData = {'device': 'mac', 'weChatData': weChatData};

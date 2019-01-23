@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants.dart' show AppColors, AppStyle, Constants;
-import '../model/weChatData.dart' show WeChatData, weChatData;
+import '../model/weChatData.dart' show WeChatData, mockWeChatData;
 
 enum Device { MAC, WIN }
 
@@ -165,14 +165,20 @@ class _WeChatDataState extends State<WeChat>
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
-        if (index == 0) {
-          return _DeviceInfoItem(device: Device.WIN);
+        if (mockWeChatData['device'] != null) {
+          if (index == 0) {
+            return _DeviceInfoItem(device: Device.MAC);
+          }
         }
         return _WeChatListItem(
-          weChatItem: weChatData[index],
+          weChatItem: mockWeChatData['device'] == null
+              ? mockWeChatData['weChatData'][index]
+              : mockWeChatData['weChatData'][index - 1],
         );
       },
-      itemCount: weChatData.length,
+      itemCount: mockWeChatData['device'] == null
+          ? mockWeChatData['weChatData'].length
+          : mockWeChatData['weChatData'].length + 1,
     );
   }
 }
