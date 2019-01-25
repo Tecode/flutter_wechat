@@ -51,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: IconData(0xe743, fontFamily: 'appIconFont'),
           activeIcon: IconData(0xe743, fontFamily: 'appIconFont')),
     ];
+    // 页面
     _pages = [
       WeChat(),
       Contacts(),
