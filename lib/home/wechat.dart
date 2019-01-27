@@ -14,19 +14,19 @@ class _WeChatListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget avartar;
-    Widget avartarContainer;
+    Widget avatar;
+    Widget avatarContainer;
     Widget rightArea;
 
     if (weChatItem.isAvatartFromNet()) {
-      avartar = Image.network(
-        weChatItem.avartar,
+      avatar = Image.network(
+        weChatItem.avatar,
         width: Constants.CoverAvaterSize,
         height: Constants.CoverAvaterSize,
       );
     } else {
-      avartar = Image.asset(
-        weChatItem.avartar,
+      avatar = Image.asset(
+        weChatItem.avatar,
         width: Constants.CoverAvaterSize,
         height: Constants.CoverAvaterSize,
       );
@@ -49,10 +49,10 @@ class _WeChatListItem extends StatelessWidget {
     // 判断未读消息
     if (weChatItem.unreadMsgCount > 0) {
       // 堆栈式布局，类似与绝对布局或相对布局
-      avartarContainer = Stack(
+      avatarContainer = Stack(
         overflow: Overflow.visible,
         children: <Widget>[
-          avartar,
+          avatar,
           Positioned(
             //定位
             right: -6.0,
@@ -62,7 +62,7 @@ class _WeChatListItem extends StatelessWidget {
         ],
       );
     } else {
-      avartarContainer = avartar;
+      avatarContainer = avatar;
     }
 
     // 判断是否是勿扰模式
@@ -91,7 +91,7 @@ class _WeChatListItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          avartarContainer,
+          avatarContainer,
           Container(
             width: 10.0,
           ),

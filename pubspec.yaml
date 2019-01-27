@@ -50,6 +50,10 @@ flutter:
    - assets/images/tencent_news.png
    - assets/images/weChat_run.png
    - assets/images/mute_icon.png
+   - assets/images/official_acconut.png
+   - assets/images/group_chat.png
+   - assets/images/wechat_work_contacts.png
+   - assets/images/new_friends.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

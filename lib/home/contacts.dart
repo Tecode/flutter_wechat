@@ -6,13 +6,27 @@ class _ContactsItem extends StatelessWidget {
   final String avatar;
   final String title;
   final String groupTitle;
+  final VoidCallback onpressed;
 
-  _ContactsItem({@required this.title, @required this.avatar, this.groupTitle});
+  _ContactsItem(
+      {@required this.title,
+      @required this.avatar,
+      this.groupTitle,
+      this.onpressed});
 
   // 头像
   Widget get avatarWidget {
-    return Image.network(
+    if (this.avatar.indexOf('http') > -1 || this.avatar.indexOf('https') == 0) {
+      return Image.network(
+        this.avatar,
+        repeat: ImageRepeat.noRepeat,
+        width: Constants.ContactAvatarSize,
+        height: Constants.ContactAvatarSize,
+      );
+    }
+    return Image.asset(
       this.avatar,
+      repeat: ImageRepeat.noRepeat,
       width: Constants.ContactAvatarSize,
       height: Constants.ContactAvatarSize,
     );
@@ -44,13 +58,57 @@ class Contacts extends StatefulWidget {
 }
 
 class _ContactsState extends State<Contacts> {
-  final _contactDatas = ContactData().contactData;
+  final List<Contact> _contactDatas = [];
+  final List<_ContactsItem> functionButton = [
+    _ContactsItem(
+      avatar: "assets/images/new_friends.png",
+      title: "添加新朋友",
+      onpressed: () {
+        print("点击了我");
+      },
+    ),
+    _ContactsItem(
+      avatar: "assets/images/group_chat.png",
+      title: "群聊",
+      onpressed: () {
+        print("点击了我");
+      },
+    ),
+    _ContactsItem(
+      avatar: "assets/images/official_acconut.png",
+      title: "添加公众号",
+      onpressed: () {
+        print("点击了我");
+      },
+    ),
+    _ContactsItem(
+      avatar: "assets/images/wechat_work_contacts.png",
+      title: "微信工作联系人",
+      onpressed: () {
+        print("点击了我");
+      },
+    ),
+  ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _contactDatas
+      ..addAll(ContactData().contactData)
+      ..addAll(ContactData().contactData)
+      ..addAll(ContactData().contactData);
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext contax, int index) {
-        Contact _contactData = _contactDatas[index];
+        if (index < functionButton.length) {
+          return functionButton[index];
+        }
+        final int listIndex = index - functionButton.length;
+        Contact _contactData = _contactDatas[listIndex];
         return _ContactsItem(
             avatar: _contactData.avatar, title: _contactData.name);
       },
