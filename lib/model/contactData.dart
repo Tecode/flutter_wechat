@@ -31,5 +31,15 @@ class ContactData {
       nameIndex: "L",
       avatar: "https://randomuser.me/api/portraits/women/12.jpg",
     ),
+    Contact(
+      name: "Mohawk",
+      nameIndex: "M",
+      avatar: "https://randomuser.me/api/portraits/women/11.jpg",
+    ),
+    Contact(
+      name: "Linux",
+      nameIndex: "L",
+      avatar: "https://randomuser.me/api/portraits/women/12.jpg",
+    ),
   ];
 }
