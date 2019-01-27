@@ -17,18 +17,22 @@ class _ContactsItem extends StatelessWidget {
   // 头像
   Widget get avatarWidget {
     if (this.avatar.indexOf('http') > -1 || this.avatar.indexOf('https') == 0) {
-      return Image.network(
-        this.avatar,
-        repeat: ImageRepeat.noRepeat,
+      return Container(
         width: Constants.ContactAvatarSize,
         height: Constants.ContactAvatarSize,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(this.avatar), fit: BoxFit.cover),
+            borderRadius: BorderRadius.circular(2.0)),
       );
     }
-    return Image.asset(
-      this.avatar,
-      repeat: ImageRepeat.noRepeat,
+    return Container(
       width: Constants.ContactAvatarSize,
       height: Constants.ContactAvatarSize,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(this.avatar), fit: BoxFit.cover),
+          borderRadius: BorderRadius.all(Radius.circular(2.0))),
     );
   }
 
