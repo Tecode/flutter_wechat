@@ -12,6 +12,7 @@ class AppColors {
   static const NotifyDotColor = 0xfff43530;
   static const NotifyTextColor = 0xffffffff;
   static const DeviceInfoTextColor = 0xff353535;
+  static const BorderColor = 0xffdedede;
 }
 
 class AppStyle {

@@ -9,6 +9,15 @@ class _ContactsItem extends StatelessWidget {
 
   _ContactsItem({@required this.title, @required this.avatar, this.groupTitle});
 
+  // 头像
+  Widget get avatarWidget {
+    return Image.network(
+      this.avatar,
+      width: Constants.ContactAvatarSize,
+      height: Constants.ContactAvatarSize,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,14 +26,10 @@ class _ContactsItem extends StatelessWidget {
       decoration: BoxDecoration(
           border: Border(
               bottom:
-                  BorderSide(width: 1.0, color: Color(AppColors.DriverColor)))),
+                  BorderSide(width: 1.0, color: Color(AppColors.BorderColor)))),
       child: Row(
         children: <Widget>[
-          Image.asset(
-            "assets/images/file_send.png",
-            width: Constants.ContactAvatarSize,
-            height: Constants.ContactAvatarSize,
-          ),
+          avatarWidget,
           SizedBox(width: 10.0, height: 10.0),
           Text(this.title)
         ],
