@@ -86,6 +86,37 @@ class Contacts extends StatefulWidget {
   _ContactsState createState() => _ContactsState();
 }
 
+// 單詞索引
+const List<String> indexBarWords = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  'P',
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "#"
+];
+
 class _ContactsState extends State<Contacts> {
   final List<Contact> _contactDatas = [];
   final List<_ContactsItem> functionButton = [
@@ -133,26 +164,43 @@ class _ContactsState extends State<Contacts> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (BuildContext contax, int index) {
-        bool isGroupTitle = true;
-        if (index < functionButton.length) {
-          return functionButton[index];
-        }
-        final int listIndex = index - functionButton.length;
-        if (listIndex > 0 &&
-            _contactDatas[listIndex].nameIndex ==
-                _contactDatas[listIndex - 1].nameIndex) {
-          isGroupTitle = false;
-        }
-        Contact _contactData = _contactDatas[listIndex];
-        return _ContactsItem(
-          avatar: _contactData.avatar,
-          title: _contactData.name,
-          nameIndex: isGroupTitle ? _contactData.nameIndex : null,
-        );
-      },
-      itemCount: _contactDatas.length,
+    final List<Widget> _letters = indexBarWords.map((String word) {
+      return Expanded(
+        child: Text(word),
+      );
+    }).toList();
+    return Stack(
+      children: <Widget>[
+        ListView.builder(
+          itemBuilder: (BuildContext contax, int index) {
+            bool isGroupTitle = true;
+            if (index < functionButton.length) {
+              return functionButton[index];
+            }
+            final int listIndex = index - functionButton.length;
+            if (listIndex > 0 &&
+                _contactDatas[listIndex].nameIndex ==
+                    _contactDatas[listIndex - 1].nameIndex) {
+              isGroupTitle = false;
+            }
+            Contact _contactData = _contactDatas[listIndex];
+            return _ContactsItem(
+              avatar: _contactData.avatar,
+              title: _contactData.name,
+              nameIndex: isGroupTitle ? _contactData.nameIndex : null,
+            );
+          },
+          itemCount: _contactDatas.length,
+        ),
+        Positioned(
+            width: 20.0,
+            bottom: 0,
+            top: 0,
+            right: 0,
+            child: Column(
+              children: _letters,
+            ))
+      ],
     );
   }
 }
