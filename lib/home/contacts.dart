@@ -40,6 +40,8 @@ class _ContactsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 判断是否显示标签索引
+
     // 显示名称索引
     Widget _itemIndex;
     // 列表主体部分
@@ -125,21 +127,29 @@ class _ContactsState extends State<Contacts> {
       ..addAll(ContactData().contactData)
       ..addAll(ContactData().contactData)
       ..addAll(ContactData().contactData);
+    _contactDatas
+        .sort((Contact a, Contact b) => a.nameIndex.compareTo(b.nameIndex));
   }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext contax, int index) {
+        bool isGroupTitle = true;
         if (index < functionButton.length) {
           return functionButton[index];
         }
         final int listIndex = index - functionButton.length;
+        if (listIndex > 0 &&
+            _contactDatas[listIndex].nameIndex ==
+                _contactDatas[listIndex - 1].nameIndex) {
+          isGroupTitle = false;
+        }
         Contact _contactData = _contactDatas[listIndex];
         return _ContactsItem(
           avatar: _contactData.avatar,
           title: _contactData.name,
-          nameIndex: _contactData.nameIndex,
+          nameIndex: isGroupTitle ? _contactData.nameIndex : null,
         );
       },
       itemCount: _contactDatas.length,
