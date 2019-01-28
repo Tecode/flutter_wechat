@@ -6,12 +6,14 @@ class _ContactsItem extends StatelessWidget {
   final String avatar;
   final String title;
   final String groupTitle;
+  final String nameIndex;
   final VoidCallback onpressed;
 
   _ContactsItem(
       {@required this.title,
       @required this.avatar,
       this.groupTitle,
+      this.nameIndex,
       this.onpressed});
 
   // 头像
@@ -38,21 +40,42 @@ class _ContactsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 16.0, right: 16.0),
+    // 显示名称索引
+    Widget _itemIndex;
+    // 列表主体部分
+    Widget _itemData = Container(
       padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+      margin: EdgeInsets.only(left: 10.0, right: 10.0),
       decoration: BoxDecoration(
           border: Border(
               bottom:
                   BorderSide(width: 1.0, color: Color(AppColors.BorderColor)))),
       child: Row(
         children: <Widget>[
-          avatarWidget,
+          this.avatarWidget,
           SizedBox(width: 10.0, height: 10.0),
-          Text(this.title)
+          Text(title)
         ],
       ),
     );
+    if (this.nameIndex != null) {
+      _itemIndex = Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(top: 2.0, bottom: 2.0, left: 10.0),
+            alignment: Alignment.centerLeft,
+            child: Text(this.nameIndex,
+                style: TextStyle(color: Colors.black54, fontSize: 14.0)),
+            color: Color(AppColors.TagBackgroundColor),
+          ),
+          _itemData
+        ],
+      );
+    } else {
+      _itemIndex = _itemData;
+    }
+
+    return _itemIndex;
   }
 }
 
@@ -114,7 +137,10 @@ class _ContactsState extends State<Contacts> {
         final int listIndex = index - functionButton.length;
         Contact _contactData = _contactDatas[listIndex];
         return _ContactsItem(
-            avatar: _contactData.avatar, title: _contactData.name);
+          avatar: _contactData.avatar,
+          title: _contactData.name,
+          nameIndex: _contactData.nameIndex,
+        );
       },
       itemCount: _contactDatas.length,
     );
