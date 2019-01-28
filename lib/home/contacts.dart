@@ -46,8 +46,8 @@ class _ContactsItem extends StatelessWidget {
     Widget _itemIndex;
     // 列表主体部分
     Widget _itemData = Container(
-      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-      margin: EdgeInsets.only(left: 10.0, right: 10.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0),
+      margin: EdgeInsets.symmetric(horizontal: 10.0),
       decoration: BoxDecoration(
           border: Border(
               bottom:
@@ -64,7 +64,7 @@ class _ContactsItem extends StatelessWidget {
       _itemIndex = Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 2.0, bottom: 2.0, left: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             alignment: Alignment.centerLeft,
             child: Text(this.nameIndex,
                 style: TextStyle(color: Colors.black54, fontSize: 14.0)),
