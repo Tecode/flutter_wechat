@@ -8,7 +8,8 @@ class _ContactsItem extends StatelessWidget {
   final String groupTitle;
   final String nameIndex;
   final VoidCallback onpressed;
-
+  static const double _indexBoxHeight = 20.0;
+  static const double _itemPadding = 10.0;
   _ContactsItem(
       {@required this.title,
       @required this.avatar,
@@ -46,7 +47,7 @@ class _ContactsItem extends StatelessWidget {
     Widget _itemIndex;
     // 列表主体部分
     Widget _itemData = Container(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
+      padding: EdgeInsets.symmetric(vertical: _itemPadding),
       margin: EdgeInsets.symmetric(horizontal: 10.0),
       decoration: BoxDecoration(
           border: Border(
@@ -65,6 +66,7 @@ class _ContactsItem extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
+            height: _indexBoxHeight,
             alignment: Alignment.centerLeft,
             child: Text(this.nameIndex,
                 style: TextStyle(color: Colors.black54, fontSize: 14.0)),
@@ -118,6 +120,7 @@ const List<String> indexBarWords = [
 ];
 
 class _ContactsState extends State<Contacts> {
+  ScrollController _scrollController;
   final List<Contact> _contactDatas = [];
   final List<_ContactsItem> functionButton = [
     _ContactsItem(
@@ -149,9 +152,12 @@ class _ContactsState extends State<Contacts> {
       },
     ),
   ];
+  // 存放索引的Y坐标
+  Map<String, double> _indexMap = {};
 
   @override
   void initState() {
+    double _itemHeight = 0.0;
     // TODO: implement initState
     super.initState();
     _contactDatas
@@ -160,6 +166,31 @@ class _ContactsState extends State<Contacts> {
       ..addAll(ContactData().contactData);
     _contactDatas
         .sort((Contact a, Contact b) => a.nameIndex.compareTo(b.nameIndex));
+    for (int index = 0; index < _contactDatas.length; index++) {
+      bool isGroupTitle = true;
+      if (index > 0 &&
+          _contactDatas[index].nameIndex ==
+              _contactDatas[index - 1].nameIndex) {
+        isGroupTitle = false;
+      }
+      _itemHeight +=
+          Constants.ContactAvatarSize + _ContactsItem._itemPadding * 2;
+      if (isGroupTitle) {
+        Contact _contactData = _contactDatas[index];
+        _itemHeight += _ContactsItem._indexBoxHeight;
+        _indexMap[_contactData.nameIndex] = _itemHeight;
+      }
+    }
+
+    // 初始化滚动控件
+    _scrollController = new ScrollController();
+  }
+
+  @override
+  void dispose() {
+    // 销毁
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -172,7 +203,8 @@ class _ContactsState extends State<Contacts> {
     return Stack(
       children: <Widget>[
         ListView.builder(
-          itemBuilder: (BuildContext contax, int index) {
+          controller: _scrollController,
+          itemBuilder: (BuildContext context, int index) {
             bool isGroupTitle = true;
             if (index < functionButton.length) {
               return functionButton[index];
@@ -197,8 +229,22 @@ class _ContactsState extends State<Contacts> {
             bottom: 0,
             top: 0,
             right: 0,
-            child: Column(
-              children: _letters,
+            child: GestureDetector(
+              onVerticalDragDown: (DragDownDetails detail) {
+                print("dragedown");
+              },
+              onVerticalDragEnd: (DragEndDetails detail) {
+                _scrollController.animateTo(_indexMap["H"],
+                    curve: Curves.bounceIn,
+                    duration: Duration(microseconds: 200));
+                print("drageEnd");
+              },
+              onVerticalDragCancel: () {
+                print(_indexMap);
+              },
+              child: Column(
+                children: _letters,
+              ),
             ))
       ],
     );
