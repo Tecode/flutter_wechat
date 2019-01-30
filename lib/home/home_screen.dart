@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../constants.dart' show AppColors;
 import './wechat.dart';
 import './contacts.dart';
+import './discover.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _pages = [
       WeChat(),
       Contacts(),
-      Container(color: Colors.cyan),
+      Discover(),
       Container(
         color: Colors.green,
       )
@@ -85,6 +86,71 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  // navBar导航
+  get activeNavBar {
+    switch (_currentIndex) {
+      case 0:
+        return AppBar(
+          title: Text('微信'),
+          elevation: 0.0,
+          actions: <Widget>[
+            PopupMenuButton(
+              itemBuilder: (BuildContext contenx) {
+                return <PopupMenuItem>[
+                  PopupMenuItem(
+                    child: _buildPopupMenuItem(0xe740, '发起群聊'),
+                    value: 'new_chat',
+                  ),
+                  PopupMenuItem(
+                    child: _buildPopupMenuItem(0xe743, '添加朋友'),
+                    value: 'add_contact',
+                  ),
+                  PopupMenuItem(
+                    child: _buildPopupMenuItem(0xe74f, '扫一扫'),
+                    value: 'scan',
+                  ),
+                  PopupMenuItem(
+                    child: _buildPopupMenuItem(0xe754, '收付款'),
+                    value: 'money',
+                  ),
+                ];
+              },
+              icon: Icon(
+                Icons.add,
+                size: 26,
+              ),
+              onSelected: (Object selected) {
+                print('点击的是$selected');
+              },
+            )
+          ],
+        );
+      case 1:
+        return AppBar(
+          title: Text('通讯录'),
+          elevation: 0.0,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.contacts),
+              onPressed: () {
+                print("点击了通讯录的按钮");
+              },
+            ),
+          ],
+        );
+      case 2:
+        return AppBar(
+          title: Text('发现'),
+          elevation: 0.0,
+        );
+      case 3:
+        return AppBar(
+          title: Text('我'),
+          elevation: 0.0,
+        );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final BottomNavigationBar bottomBar = BottomNavigationBar(
@@ -98,46 +164,12 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _currentIndex = index;
           _pageController.animateToPage(_currentIndex,
-              duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
+              duration: Duration(milliseconds: 1), curve: Curves.linear);
         });
       },
     );
     return Scaffold(
-      appBar: AppBar(
-        title: Text('微信'),
-        elevation: 0.0,
-        actions: <Widget>[
-          PopupMenuButton(
-            itemBuilder: (BuildContext contenx) {
-              return <PopupMenuItem>[
-                PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe740, '发起群聊'),
-                  value: 'new_chat',
-                ),
-                PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe743, '添加朋友'),
-                  value: 'add_contact',
-                ),
-                PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe74f, '扫一扫'),
-                  value: 'scan',
-                ),
-                PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe754, '收付款'),
-                  value: 'money',
-                ),
-              ];
-            },
-            icon: Icon(
-              Icons.add,
-              size: 26,
-            ),
-            onSelected: (Object selected) {
-              print('点击的是$selected');
-            },
-          )
-        ],
-      ),
+      appBar: activeNavBar,
       body: PageView.builder(
         itemBuilder: (BuildContext contenx, int index) {
           return _pages[index];
