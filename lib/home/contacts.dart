@@ -157,7 +157,7 @@ class _ContactsState extends State<Contacts> {
 
   @override
   void initState() {
-    double _itemHeight = 0.0;
+    double _itemHeight = (functionButton.length-1)*(Constants.ContactAvatarSize + _ContactsItem._itemPadding * 2) - _ContactsItem._indexBoxHeight;
     // TODO: implement initState
     super.initState();
     _contactDatas
@@ -174,7 +174,7 @@ class _ContactsState extends State<Contacts> {
         isGroupTitle = false;
       }
       _itemHeight +=
-          Constants.ContactAvatarSize + _ContactsItem._itemPadding * 2;
+          Constants.ContactAvatarSize + _ContactsItem._itemPadding * 2 + 1.0;
       if (isGroupTitle) {
         Contact _contactData = _contactDatas[index];
         _itemHeight += _ContactsItem._indexBoxHeight;
@@ -231,12 +231,12 @@ class _ContactsState extends State<Contacts> {
             right: 0,
             child: GestureDetector(
               onVerticalDragDown: (DragDownDetails detail) {
+                _scrollController.animateTo(_indexMap['B'],
+                    curve: Curves.bounceIn,
+                    duration: Duration(microseconds: 200));
                 print("dragedown");
               },
               onVerticalDragEnd: (DragEndDetails detail) {
-                _scrollController.animateTo(_indexMap["H"],
-                    curve: Curves.bounceIn,
-                    duration: Duration(microseconds: 200));
                 print("drageEnd");
               },
               onVerticalDragCancel: () {
