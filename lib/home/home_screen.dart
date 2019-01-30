@@ -3,6 +3,7 @@ import '../constants.dart' show AppColors;
 import './wechat.dart';
 import './contacts.dart';
 import './discover.dart';
+import './me.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -54,12 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
     // 页面
     _pages = [
-      WeChat(),
-      Contacts(),
-      Discover(),
-      Container(
-        color: Colors.green,
-      )
+      WeChat(), //会话列表
+      Contacts(), //联系人
+      Discover(), // 发现
+      Me() //我
     ];
   }
 
@@ -171,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: activeNavBar,
       body: PageView.builder(
-        physics: NeverScrollableScrollPhysics(),    //静止滑动
+        physics: NeverScrollableScrollPhysics(), //静止滑动
         itemBuilder: (BuildContext contenx, int index) {
           return _pages[index];
         },
