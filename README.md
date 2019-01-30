@@ -1,16 +1,11 @@
-# flutter_wechat
+# 仿微信Flutter版本
 
-A new Flutter project.
+## 已完成的功能
 
-## Getting Started
+- 对话列表
+- 联系人列表
+- 页面切换
 
-This project is a starting point for a Flutter application.
+## Demo
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+<img scr="https://github.com/Tecode/Avalon-/blob/master/img/ezgif-3-7c28fcd0357a.gif" />
