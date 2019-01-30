@@ -8,4 +8,4 @@
 
 ## Demo
 
-<img scr="https://github.com/Tecode/Avalon-/blob/master/img/ezgif-3-7c28fcd0357a.gif" />
+<img src="https://github.com/Tecode/Avalon-/blob/master/img/ezgif-3-7c28fcd0357a.gif" alt="react boilerplate banner" align="center" />
