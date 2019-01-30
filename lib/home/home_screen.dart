@@ -171,6 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: activeNavBar,
       body: PageView.builder(
+        physics: NeverScrollableScrollPhysics(),    //静止滑动
         itemBuilder: (BuildContext contenx, int index) {
           return _pages[index];
         },
