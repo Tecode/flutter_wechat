@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model/discoverData.dart' show DiscoverData;
 
+
 class _DiscoverItem extends StatelessWidget {
   final String icon;
   final String title;
