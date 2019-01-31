@@ -16,6 +16,7 @@ class AppColors {
   static const TagBackgroundColor = 0xffebebeb;
   static const DiscoverBodyColor = 0xffefeff3;
   static const DiscoverArrowColor = 0xffc7c7cb;
+  static const DiscoverBoderLine = 0xffd9d9d9;
 }
 
 class AppStyle {

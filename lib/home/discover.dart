@@ -21,15 +21,15 @@ class _DiscoverItem extends StatelessWidget {
   get boderStyle {
     if (isGroup != null) {
       return Border(
-          bottom: BorderSide(
-              width: 1.0, color: Color(AppColors.DiscoverArrowColor)),
+          bottom:
+              BorderSide(width: 1.0, color: Color(AppColors.DiscoverBoderLine)),
           top: BorderSide(
               width: isGroup != null ? 1.0 : 0.0,
-              color: Color(AppColors.DiscoverArrowColor)));
+              color: Color(AppColors.DiscoverBoderLine)));
     }
     return Border(
         bottom:
-            BorderSide(width: 1.0, color: Color(AppColors.DiscoverArrowColor)));
+            BorderSide(width: 1.0, color: Color(AppColors.DiscoverBoderLine)));
   }
 
   @override
@@ -54,7 +54,10 @@ class _DiscoverItem extends StatelessWidget {
             Expanded(
               child: Text(title),
             ),
-            Icon(Icons.chevron_right)
+            Icon(
+              Icons.chevron_right,
+              color: Color(AppColors.DiscoverArrowColor),
+            )
           ],
         ),
       ),
