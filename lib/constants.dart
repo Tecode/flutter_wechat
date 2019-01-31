@@ -14,6 +14,8 @@ class AppColors {
   static const DeviceInfoTextColor = 0xff353535;
   static const BorderColor = 0xffdedede;
   static const TagBackgroundColor = 0xffebebeb;
+  static const DiscoverBodyColor = 0xffefeff3;
+  static const DiscoverArrowColor = 0xffc7c7cb;
 }
 
 class AppStyle {
@@ -33,4 +35,5 @@ class Constants {
   static const NotifyDotSize = 20.0;
   static const DeviceInfoHeight = 36.0;
   static const ContactAvatarSize = 36.0;
+  static const DiscoverIconSize = 28.0;
 }

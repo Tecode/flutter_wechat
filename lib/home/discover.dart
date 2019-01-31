@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/discoverData.dart' show DiscoverData, DiscoverItem;
+import '../constants.dart' show Constants, AppColors;
 
 class _DiscoverItem extends StatelessWidget {
   final String icon;
@@ -16,26 +17,47 @@ class _DiscoverItem extends StatelessWidget {
       this.isGroup})
       : assert(icon != null),
         assert(title != null);
+
+  get boderStyle {
+    if (isGroup != null) {
+      return Border(
+          bottom: BorderSide(
+              width: 1.0, color: Color(AppColors.DiscoverArrowColor)),
+          top: BorderSide(
+              width: isGroup != null ? 1.0 : 0.0,
+              color: Color(AppColors.DiscoverArrowColor)));
+    }
+    return Border(
+        bottom:
+            BorderSide(width: 1.0, color: Color(AppColors.DiscoverArrowColor)));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 5.0,horizontal: 6.0),
-      child: Row(
-      children: <Widget>[
-        Container(
-          height: 20.0,
-          width: 20.0,
-          color: Colors.red,
+    return GestureDetector(
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 6.0),
+        margin: EdgeInsets.only(top: isGroup != null ? 20.0 : 0.0),
+        decoration: BoxDecoration(
+            color: Color(AppColors.WeChatListBackgoundColor),
+            border: boderStyle),
+        child: Row(
+          children: <Widget>[
+            Image.asset(
+              icon,
+              width: Constants.DiscoverIconSize,
+              height: Constants.DiscoverIconSize,
+            ),
+            SizedBox(
+              width: 10.0,
+            ),
+            Expanded(
+              child: Text(title),
+            ),
+            Icon(Icons.chevron_right)
+          ],
         ),
-        SizedBox(
-          width: 10.0,
-        ),
-        Expanded(
-          child: Text(title),
-        ),
-        Icon(Icons.chevron_right)
-      ],
-    ),
+      ),
     );
   }
 }
