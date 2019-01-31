@@ -36,5 +36,6 @@ class Constants {
   static const NotifyDotSize = 20.0;
   static const DeviceInfoHeight = 36.0;
   static const ContactAvatarSize = 36.0;
-  static const DiscoverIconSize = 28.0;
+  static const DiscoverIconSize = 24.0;
+  static const MeIconSize = 24.0;
 }

@@ -58,6 +58,12 @@ flutter:
    - assets/images/message_bottle.jpg
    - assets/images/games.jpg
    - assets/images/mini_programs.jpg
+   - assets/images/wallet.jpg
+   - assets/images/facorites.jpg
+   - assets/images/my_posts.jpg
+   - assets/images/cards_offers.jpg
+   - assets/images/sticker_gallery.jpg
+   - assets/images/settings.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
