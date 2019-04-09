@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icon / iOS Search</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="WeChat---Contacts" transform="translate(-272.000000, -159.000000)" fill="#8E8E93" fill-rule="nonzero">
+            <g id="Search" transform="translate(0.000000, 128.000000)">
+                <g id="Icon-/-iOS-Search-+-搜索" transform="translate(272.000000, 23.000000)">
+                    <g id="Icon-/-iOS-Search" transform="translate(0.000000, 8.000000)">
+                        <path d="M15.938918,18.0477936 C12.1964773,20.8156 6.90221172,20.6669515 3.308751,17.4313849 C-0.795489542,13.7359101 -1.12685966,7.41299154 2.56861512,3.308751 C6.2640899,-0.795489542 12.5870085,-1.12685966 16.691249,2.56861512 C20.5518906,6.04475242 21.0742331,11.8456961 18.0468934,15.9380177 L25.6560083,23.5471326 L23.5471326,25.6560083 L15.938918,18.0477936 Z M15.9451079,15.3529992 C18.9014877,12.0696068 18.6363916,7.01127192 15.3529992,4.05489209 C12.0696068,1.09851227 7.01127192,1.36360837 4.05489209,4.6470008 C1.09851227,7.93039323 1.36360837,12.9887281 4.6470008,15.9451079 C7.93039323,18.9014877 12.9887281,18.6363916 15.9451079,15.3529992 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

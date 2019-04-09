@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icon / TabBar-Discover-Outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="WeChat-Main-Screen-Drop-Down" transform="translate(-377.000000, -1053.000000)" fill="#7A7E83">
+            <g id="TabBar-WeChat-Active" transform="translate(0.000000, 1037.000000)">
+                <g id="发现-+-TabBar-Discover-Outline" transform="translate(377.000000, 16.000000)">
+                    <g id="Icon-/-TabBar-Discover-Outline">
+                        <path d="M23,25 C21.896,25 21,24.105 21,23 C21,21.895 21.896,21 23,21 C24.104,21 25,21.895 25,23 C25,24.105 24.104,25 23,25 L23,25 Z M20.166,20.02 L9.671,36.516 L26.145,26.042 L36.657,9.564 L20.166,20.02 Z M23,44.0833 C11.356,44.0833 1.917,34.6443 1.917,23.0003 C1.917,11.3563 11.356,1.9163 23,1.9163 C34.644,1.9163 44.083,11.3563 44.083,23.0003 C44.083,34.6443 34.644,44.0833 23,44.0833 M23,0.0003 C10.297,0.0003 0,10.2973 0,23.0003 C0,35.7023 10.297,46.0003 23,46.0003 C35.703,46.0003 46,35.7023 46,23.0003 C46,10.2973 35.703,0.0003 23,0.0003"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

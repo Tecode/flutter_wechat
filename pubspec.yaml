@@ -64,6 +64,22 @@ flutter:
    - assets/images/cards_offers.jpg
    - assets/images/sticker_gallery.jpg
    - assets/images/settings.jpg
+   - assets/images/icon_active_discover.svg
+   - assets/images/icon_active_me.svg
+   - assets/images/icon_active_msg.svg
+   - assets/images/icon_contacts.svg
+   - assets/images/icon_discover.svg
+   - assets/images/icon_drop_down_add.svg
+   - assets/images/icon_drop_down_menu_white.svg
+   - assets/images/icon_drop_down_money.svg
+   - assets/images/icon_drop_down_scan.svg
+   - assets/images/icon_me.svg
+   - assets/images/icon_top_bar_add.svg
+   - assets/images/icon_top_bar_microphone.svg
+   - assets/images/icon_top_bar_search.svg
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

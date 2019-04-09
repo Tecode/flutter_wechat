@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 46 0 46 46 0 46"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="WeChat-Discover" transform="translate(-377.000000, -1053.000000)">
+            <g id="TabBar-Discover-Active" transform="translate(0.000000, 1037.000000)">
+                <g id="发现-+-TabBar-Discover-Green" transform="translate(377.000000, 16.000000)">
+                    <g id="Icon-/-TabBar-Discover-Green">
+                        <path d="M23,25 C24.104,25 25,24.105 25,23 C25,21.895 24.104,21 23,21 C21.896,21 21,21.895 21,23 C21,24.105 21.896,25 23,25" id="Fill-1" fill="#27B24A"></path>
+                        <g id="Group-5">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-4"></g>
+                            <path d="M26.1445,26.0423 L9.6705,36.5153 L20.1665,20.0203 L36.6575,9.5643 L26.1445,26.0423 Z M22.9995,0.0003 C10.2975,0.0003 -0.0005,10.2973 -0.0005,23.0003 C-0.0005,35.7023 10.2975,46.0003 22.9995,46.0003 C35.7025,46.0003 45.9995,35.7023 45.9995,23.0003 C45.9995,10.2973 35.7025,0.0003 22.9995,0.0003 L22.9995,0.0003 Z" id="Fill-3" fill="#27B24A" mask="url(#mask-2)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icon / Yen</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="WeChat-Main-Screen-Drop-Down" transform="translate(-391.000000, -435.000000)" fill="#FFFFFF">
+            <g id="+-Drop-Down" transform="translate(352.000000, 134.000000)">
+                <g id="Icon-/-Yen" transform="translate(39.000000, 301.000000)">
+                    <path d="M0,18.9994978 C0,29.4936167 8.50716287,38 19,38 C29.4928371,38 38,29.4936167 38,18.9994978 C38,8.50638332 29.4928371,0 19,0 C8.50716287,0 0,8.50638332 0,18.9994978 Z M25,20 L25,22 L21,22 L21,24 L25,24 L25,26 L21,26 L21,29 L17,29 L17,26 L13,26 L13,24 L17,24 L17,22 L13,22 L13,20 L16,20 L11,10 L15,10 L19,18 L19,18 L23,10 L27,10 L22,20 L25,20 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
