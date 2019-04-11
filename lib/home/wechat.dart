@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants.dart' show AppColors, AppStyle, Constants;
 import '../model/weChatData.dart' show WeChatData, mockWeChatData;
+import '../pages/chat_page.dart' show ChatPage;
 
 enum Device { MAC, WIN }
 
@@ -80,39 +81,50 @@ class _WeChatListItem extends StatelessWidget {
       );
     }
 
-    return Container(
-      padding: const EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-          color: Color(AppColors.WeChatListBackgoundColor),
-          border: Border(
-              bottom: BorderSide(
-                  color: Color(AppColors.DriverColor),
-                  width: Constants.DividerWidth))),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          avatarContainer,
-          Container(
-            width: 10.0,
-          ),
-          Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                weChatItem.title,
-                style: AppStyle.TitleStyle,
-              ),
-              Text(
-                weChatItem.descript,
-                style: AppStyle.DiscriptionStyle,
-              )
-            ],
-          )),
-          Column(
-            children: <Widget>[Text(weChatItem.creatAt), rightArea],
-          )
-        ],
+    return GestureDetector(
+      onTap: () {
+        print(weChatItem.title);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ChatPage(
+                      title: weChatItem.title,
+                    )));
+      },
+      child: Container(
+        padding: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+            color: Color(AppColors.WeChatListBackgoundColor),
+            border: Border(
+                bottom: BorderSide(
+                    color: Color(AppColors.DriverColor),
+                    width: Constants.DividerWidth))),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            avatarContainer,
+            Container(
+              width: 10.0,
+            ),
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  weChatItem.title,
+                  style: AppStyle.TitleStyle,
+                ),
+                Text(
+                  weChatItem.descript,
+                  style: AppStyle.DiscriptionStyle,
+                )
+              ],
+            )),
+            Column(
+              children: <Widget>[Text(weChatItem.creatAt), rightArea],
+            )
+          ],
+        ),
       ),
     );
   }
